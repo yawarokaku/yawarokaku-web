@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, PageProps } from 'gatsby'
+import { graphql, HeadFC, PageProps } from 'gatsby'
 import { MDXProvider } from '@mdx-js/react'
 import Layout from '../../components/Layout'
 import MDXComponents from '../../components/MDXComponents'
@@ -47,5 +47,9 @@ export const query = graphql`
     }
   }
 `
+
+export const Head: HeadFC<PostPageProps['data']> = ({ data }) => (
+  <title>{data.mdx.frontmatter.title} - yawarokaku</title>
+)
 
 export default PostPage
