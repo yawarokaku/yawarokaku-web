@@ -49,7 +49,7 @@ export const query = graphql`
 `
 
 export const Head: HeadFC<PostPageProps['data']> = ({ data }) => (
-  <title>{data.mdx.frontmatter.title} - yawarokaku</title>
+  <title>{data.mdx.frontmatter.title} - やわろ書く</title>
 )
 
 export default PostPage
