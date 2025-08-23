@@ -1,4 +1,6 @@
 import React from 'react'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 const MDXComponents = {
   h1: (props: React.HTMLProps<HTMLHeadingElement>) => (
@@ -40,17 +42,36 @@ const MDXComponents = {
       {...props}
     />
   ),
-  code: (props: React.HTMLProps<HTMLElement>) => (
-    <code
-      className="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono text-pink-600"
-      {...props}
-    />
-  ),
-  pre: (props: React.HTMLProps<HTMLPreElement>) => (
-    <pre
-      className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto mb-4 text-sm"
-      {...props}
-    />
+  code: ({
+    children,
+    className,
+    ...props
+  }: React.HTMLProps<HTMLElement> & { className?: string }) => {
+    const match = /language-(\w+)/.exec(className || '')
+    if (match) {
+      const language = match[1]
+      return (
+        <SyntaxHighlighter
+          style={tomorrow as never}
+          language={language}
+          PreTag="div"
+          className="rounded-lg"
+        >
+          {String(children).replace(/\n$/, '')}
+        </SyntaxHighlighter>
+      )
+    }
+    return (
+      <code
+        className="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono text-pink-600"
+        {...props}
+      >
+        {children}
+      </code>
+    )
+  },
+  pre: ({ children }: React.HTMLProps<HTMLPreElement>) => (
+    <div className="mb-4">{children}</div>
   ),
   a: (props: React.HTMLProps<HTMLAnchorElement>) => (
     <a className="text-blue-600 hover:text-blue-800 underline" {...props} />
