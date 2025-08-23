@@ -1,0 +1,7 @@
+node_modules/
+public/
+.cache/
+.git/
+package-lock.json
+*.md
+*.mdx

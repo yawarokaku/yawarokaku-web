@@ -1,7 +1,7 @@
-import * as React from "react"
-import { graphql, Link } from "gatsby";
-import type { HeadFC, PageProps } from "gatsby"
-import Layout from "../components/Layout"
+import * as React from 'react'
+import { graphql, Link } from 'gatsby'
+import type { HeadFC, PageProps } from 'gatsby'
+import Layout from '../components/Layout'
 
 interface IndexPageProps extends PageProps {
   data: {
@@ -24,18 +24,19 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
     <Layout>
       <div className="max-w-4xl mx-auto p-10">
         <div className="mb-6">
-          私たち"やわろ書く"の目的は、
+          私たち“やわろ書く”の目的は、
           <span className="font-bold">
             やわらかいもの（ソフトウェア）におおわれた今の時代に、あってもよいはずの「書きもの」を作り出し、そのコンテンツを運営すること
           </span>
-          です。<br />
+          です。
+          <br />
         </div>
-        
+
         <h2 className="text-2xl font-extrabold mb-4">手元から解放された文字</h2>
         <div className="mb-6">
           <p className="indent-3">
             「書くもの」とは文房具のことですが、ソフトウェアを利用した「文房具」は人の手を使う、いわゆるえんぴつや紙を意味していません。
-            "やわろ書く"のいう文房具はコンピューターを使った文房具のことです。
+            “やわろ書く”のいう文房具はコンピューターを使った文房具のことです。
           </p>
           <p className="indent-3">
             文房具は文字を書き取るための道具ですが、スマホを手にした私たちが文字を読み書きする多くの場面でペンと紙の出番はとても少なくなりました。
@@ -53,8 +54,10 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           </p>
           <p className="indent-3">
             いまや、音声入力を使えば完全に手を使わず文字を表示することも可能です。
-            言い換えると、文字の生産が、書くもの（ぺん）と書かれるもの（紙）の上の間の軌跡ではなく、 スマホ（コンピュータ）による入力、処理、出力に変わったのです。
-            文字を書くことが、手元から離れるということが何を意味するのか？ ずばり、歩きながら文字を書くことができるようになった、ということです。
+            言い換えると、文字の生産が、書くもの（ぺん）と書かれるもの（紙）の上の間の軌跡ではなく、
+            スマホ（コンピュータ）による入力、処理、出力に変わったのです。
+            文字を書くことが、手元から離れるということが何を意味するのか？
+            ずばり、歩きながら文字を書くことができるようになった、ということです。
           </p>
           <p className="indent-3">
             文字が手元から離れるということは、椅子に座り机に向き合わなくても生み出すことができるようになったということです。
@@ -66,7 +69,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
             写真を撮ること、映像をとること、音をとることなどなど。
           </p>
           <p className="indent-3">
-            スマホ上ではプロセスは今や文字に話を戻すと、文字はいまや社会やコミュニケーションのインフラとなっているので文字の読み書き能力（リテラシー）は教育ととても強く紐づいています。 
+            スマホ上ではプロセスは今や文字に話を戻すと、文字はいまや社会やコミュニケーションのインフラとなっているので文字の読み書き能力（リテラシー）は教育ととても強く紐づいています。
           </p>
         </div>
 
@@ -75,14 +78,16 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           {data.allMdx.nodes.map((post) => (
             <article key={post.id} className="border-b border-gray-200 pb-4">
               <h3 className="text-xl font-bold mb-2">
-                <Link 
+                <Link
                   to={`/posts/${post.frontmatter.slug}`}
                   className="text-blue-600 hover:text-blue-800 no-underline"
                 >
                   {post.frontmatter.title}
                 </Link>
               </h3>
-              <p className="text-gray-600 text-sm mb-2">{post.frontmatter.date}</p>
+              <p className="text-gray-600 text-sm mb-2">
+                {post.frontmatter.date}
+              </p>
               <p className="text-gray-700">{post.excerpt}</p>
             </article>
           ))}

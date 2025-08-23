@@ -1,27 +1,28 @@
-import type { GatsbyConfig } from "gatsby";
-import path from "path";
+import type { GatsbyConfig } from 'gatsby'
+import path from 'path'
 
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `yawarokaku-web`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://www.yourdomain.tld`,
   },
   graphqlTypegen: true,
   plugins: [
-    "gatsby-plugin-postcss",
-    "gatsby-plugin-image",
-    "gatsby-plugin-sitemap",
+    'gatsby-plugin-postcss',
+    'gatsby-plugin-image',
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
         trackingIds: [],
       },
-    }, {
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        "icon": "src/images/icon.png"
-      }
-    }, 
+        icon: 'src/images/icon.png',
+      },
+    },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -32,32 +33,34 @@ const config: GatsbyConfig = {
         },
       },
     },
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp", 
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        "name": "images",
-        "path": path.resolve(__dirname, "src/images")
+        name: 'images',
+        path: path.resolve(__dirname, 'src/images'),
       },
-      __key: "images"
-    }, {
+      __key: 'images',
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
-        "name": "pages",
-        "path": path.resolve(__dirname, "src/pages")
+        name: 'pages',
+        path: path.resolve(__dirname, 'src/pages'),
       },
-      __key: "pages"
-    }, {
+      __key: 'pages',
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
-        "name": "posts",
-        "path": path.resolve(__dirname, "content/posts"),
-        ignore: [`**/\.*`], // ignore hidden files
+        name: 'posts',
+        path: path.resolve(__dirname, 'content/posts'),
+        ignore: [`**/.*`], // ignore hidden files
       },
-      __key: "posts"
-    }
-  ]
-};
+      __key: 'posts',
+    },
+  ],
+}
 
-export default config;
+export default config
