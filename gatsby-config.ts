@@ -3,7 +3,7 @@ import path from 'path'
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `yawarokaku-web`,
+    title: `yawarokaku`,
     siteUrl: `https://yawarokaku.github.io`,
   },
   pathPrefix: `/yawarokaku-web`,

@@ -118,4 +118,4 @@ export const query = graphql`
   }
 `
 
-export const Head: HeadFC = () => <title>やわろ書く</title>
+export const Head: HeadFC = () => <title>yawarokaku</title>
