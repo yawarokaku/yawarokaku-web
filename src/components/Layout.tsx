@@ -1,3 +1,4 @@
+import { Link } from 'gatsby'
 import React from 'react'
 
 interface LayoutProps {
@@ -10,12 +11,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <header className="border-b border-gray-200 bg-white">
         <div className="max-w-4xl mx-auto p-6">
           <h1 className="text-2xl font-bold">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="text-gray-900 no-underline hover:text-gray-700"
             >
               やわろかく
-            </a>
+            </Link>
           </h1>
         </div>
       </header>
