@@ -82,7 +82,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
                   to={`/posts/${post.frontmatter.slug}`}
                   className="text-blue-600 hover:text-blue-800 no-underline"
                 >
-                  {post.frontmatter.title}
+                  {post.frontmatter.slug}: {post.frontmatter.title}
                 </Link>
               </h3>
               <p className="text-gray-600 text-sm mb-2">
