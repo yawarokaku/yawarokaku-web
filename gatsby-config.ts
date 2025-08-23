@@ -4,8 +4,9 @@ import path from 'path'
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `yawarokaku-web`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://yawarokaku.github.io`,
   },
+  pathPrefix: `/yawarokaku-web`,
   graphqlTypegen: true,
   plugins: [
     'gatsby-plugin-postcss',
