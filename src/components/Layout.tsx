@@ -21,7 +21,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </div>
       </header>
 
-      <main className="flex-grow">{children}</main>
+      <main className="flex-grow">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">{children}</div>
+      </main>
 
       <footer className="border-t border-gray-200 bg-gray-50">
         <div className="max-w-4xl mx-auto p-6 text-center text-gray-600">

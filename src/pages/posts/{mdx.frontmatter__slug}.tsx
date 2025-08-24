@@ -22,14 +22,12 @@ const PostPage: React.FC<PostPageProps> = ({ data, children }) => {
 
   return (
     <Layout>
-      <div className="max-w-4xl mx-auto">
-        <header className="mb-8">
-          <h1 className="text-4xl font-bold mb-4">{frontmatter.title}</h1>
-          <p className="text-gray-600">投稿日: {frontmatter.date}</p>
-        </header>
-        <main className="max-w-none">
-          <MDXProvider components={MDXComponents}>{children}</MDXProvider>
-        </main>
+      <header className="mb-8">
+        <h1 className="text-4xl font-bold mb-4">{frontmatter.title}</h1>
+        <p className="text-gray-600">投稿日: {frontmatter.date}</p>
+      </header>
+      <div className="max-w-none">
+        <MDXProvider components={MDXComponents}>{children}</MDXProvider>
       </div>
     </Layout>
   )
