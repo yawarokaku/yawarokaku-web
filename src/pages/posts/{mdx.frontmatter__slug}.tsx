@@ -10,6 +10,7 @@ interface PostPageProps extends PageProps {
       frontmatter: {
         title: string
         date: string
+        author: string
         id: string
         slug: string
       }
@@ -25,6 +26,7 @@ const PostPage: React.FC<PostPageProps> = ({ data, children }) => {
       <header className="mb-8">
         <h1 className="text-4xl font-bold mb-4">{frontmatter.title}</h1>
         <p className="text-gray-600">投稿日: {frontmatter.date}</p>
+        <p className="text-gray-600">執筆者: {frontmatter.author}</p>
       </header>
       <div className="max-w-none">
         <MDXProvider components={MDXComponents}>{children}</MDXProvider>
@@ -39,6 +41,7 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "YYYY年MM月DD日")
+        author
         id
         slug
       }

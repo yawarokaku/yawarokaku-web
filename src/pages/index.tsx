@@ -11,6 +11,7 @@ interface IndexPageProps extends PageProps {
         frontmatter: {
           title: string
           date: string
+          author: string
           slug: string
         }
         excerpt: string
@@ -81,11 +82,12 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
                 to={`/posts/${post.frontmatter.slug}`}
                 className="text-blue-600 hover:text-blue-800 no-underline"
               >
-                {post.frontmatter.slug}: {post.frontmatter.title}
+                {post.frontmatter.title}
               </Link>
             </h3>
             <p className="text-gray-600 text-sm mb-2">
-              {post.frontmatter.date}
+              <span className="mr-3">{post.frontmatter.date}</span>
+              <span>{post.frontmatter.author}</span>
             </p>
             <p className="text-gray-700">{post.excerpt}</p>
           </article>
@@ -108,6 +110,7 @@ export const query = graphql`
         frontmatter {
           title
           date(formatString: "YYYY年MM月DD日")
+          author
           slug
         }
         excerpt(pruneLength: 200)
