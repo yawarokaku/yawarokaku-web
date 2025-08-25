@@ -86,8 +86,9 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
               </Link>
             </h3>
             <p className="text-gray-600 text-sm mb-2">
-              <span className="mr-3">{post.frontmatter.date}</span>
-              <span>{post.frontmatter.author}</span>
+              <span>{post.frontmatter.date}</span>
+              {/* <span className="mr-3">{post.frontmatter.date}</span> */}
+              {/* <span>{post.frontmatter.author}</span> */}
             </p>
             <p className="text-gray-700">{post.excerpt}</p>
           </article>

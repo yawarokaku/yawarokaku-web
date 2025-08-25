@@ -26,7 +26,7 @@ const PostPage: React.FC<PostPageProps> = ({ data, children }) => {
       <header className="mb-8">
         <h1 className="text-4xl font-bold mb-4">{frontmatter.title}</h1>
         <p className="text-gray-600">投稿日: {frontmatter.date}</p>
-        <p className="text-gray-600">執筆者: {frontmatter.author}</p>
+        {/* <p className="text-gray-600">執筆者: {frontmatter.author}</p> */}
       </header>
       <div className="max-w-none">
         <MDXProvider components={MDXComponents}>{children}</MDXProvider>
