@@ -24,7 +24,7 @@ interface IndexPageProps extends PageProps {
 const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   return (
     <Layout>
-      <div className="mb-6">
+      <div className="mb-3">
         <h2 className="text-lg font-extrabold mb-4">
           私たち“やわろ書く”の目的は、
           やわらかいもの（ソフトウェア）におおわれた今の時代に、
