@@ -2,6 +2,7 @@ import * as React from 'react'
 import { graphql, Link } from 'gatsby'
 import type { HeadFC, PageProps } from 'gatsby'
 import Layout from '../components/Layout'
+import { StaticImage } from 'gatsby-plugin-image'
 
 interface IndexPageProps extends PageProps {
   data: {
@@ -51,6 +52,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         <p className="indent-3">
           つまり、私たちの書いてる文字は手元から離れて生み出されています。
         </p>
+        <StaticImage src="../images/write-type.png" alt="write/type" />
         <p className="indent-3">
           いまや、音声入力を使えば完全に手を使わず文字を表示することも可能です。
           言い換えると、文字の生産が、書くもの（ぺん）と書かれるもの（紙）の上の間の軌跡ではなく、
