@@ -24,14 +24,13 @@ interface IndexPageProps extends PageProps {
 const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   return (
     <Layout>
-      <div className="mb-3">
-        <h2 className="text-lg font-extrabold mb-4">
+      <div className="mb-8">
+        <h2 className="text-lg font-extrabold">
           私たち“やわろ書く”の目的は、
           やわらかいもの（ソフトウェア）におおわれた今の時代に、
           <br />
           あってもよいはずの「書きもの」を作り出し、そのコンテンツを運営することです。
         </h2>
-        <br />
       </div>
 
       <h2 className="text-2xl font-extrabold mb-4">手元から解放された文字</h2>
@@ -57,6 +56,8 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         </p>
         <p>つまり、私たちの書いてる文字は手元から離れて生み出されています。</p>
         <StaticImage src="../images/write-type.png" alt="write/type" />
+        {/* <img src="../images/write-type.svg" alt="My Happy SVG" /> */}
+        {/* <StaticImage src="../images/write-type.svg" alt="write/type" /> */}
         <p>
           いまや、音声入力を使えば完全に手を使わず文字を表示することも可能です。
           言い換えると、文字の生産が、書くもの（ぺん）と書かれるもの（紙）の上の間の軌跡ではなく、
