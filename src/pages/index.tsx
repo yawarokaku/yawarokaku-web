@@ -25,11 +25,12 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   return (
     <Layout>
       <div className="mb-6">
-        私たち“やわろ書く”の目的は、
-        <span className="font-bold">
-          やわらかいもの（ソフトウェア）におおわれた今の時代に、あってもよいはずの「書きもの」を作り出し、そのコンテンツを運営すること
-        </span>
-        です。
+        <h2 className="text-lg font-extrabold mb-4">
+          私たち“やわろ書く”の目的は、
+          やわらかいもの（ソフトウェア）におおわれた今の時代に、
+          <br />
+          あってもよいはずの「書きもの」を作り出し、そのコンテンツを運営することです。
+        </h2>
         <br />
       </div>
 
