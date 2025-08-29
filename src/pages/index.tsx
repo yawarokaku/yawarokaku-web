@@ -55,7 +55,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           指を乗せ下向きに指を動かすというこ「う」を表示するとその違いが実感できると思います。
         </p>
         <p>つまり、私たちの書いてる文字は手元から離れて生み出されています。</p>
-        <StaticImage src="../images/write-type.png" alt="write/type" />
+        <StaticImage src="../images/write-flick.png" alt="write/type" />
         {/* <img src="../images/write-type.svg" alt="My Happy SVG" /> */}
         {/* <StaticImage src="../images/write-type.svg" alt="write/type" /> */}
         <p>
