@@ -27,6 +27,7 @@ author: 田中太郎
 ## 開発用サーバの起動
 
 ```sh
+npm i
 npm run develop
 ```
 
