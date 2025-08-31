@@ -6,7 +6,7 @@ const config: GatsbyConfig = {
     title: `yawarokaku`,
     siteUrl: `https://yawarokaku.jp`,
   },
-  // pathPrefix: `/`,
+  // pathPrefix: `/yawarokaku-web`,
   graphqlTypegen: true,
   plugins: [
     'gatsby-plugin-postcss',
