@@ -1,41 +1,22 @@
 import React, { JSX, useEffect, useRef } from 'react'
 import * as d3 from 'd3'
 
-type PropNode = {
+type Node = {
   id: number
   text: string
 }
 
-type PropLink = {
+type Link = {
   id: number
   source: number
   target: number
 }
 
-type Node = PropNode & {
-  x: number
-  y: number
-}
-
-type Link = {
-  id: number
-  source: {
-    id: number
-    x: number
-    y: number
-  }
-  target: {
-    id: number
-    x: number
-    y: number
-  }
-}
-
 type TextGraphProps = {
   width: number
   height: number
-  nodes: PropNode[]
-  links: PropLink[]
+  nodes: Node[]
+  links: Link[]
 }
 
 export default function TextGraph({
@@ -57,16 +38,14 @@ function drawGraph(
   svgRef: React.RefObject<SVGSVGElement>,
   width: number,
   height: number,
-  propNodes: PropNode[],
-  propLinks: PropLink[]
+  propNodes: Node[],
+  propLinks: Link[]
 ) {
-  const nodes: Node[] = propNodes.map((n) => {
-    return {
-      ...n,
-      x: width / 2,
-      y: height / 2,
-    }
-  })
+  const nodes = propNodes.map((n) => ({
+    ...n,
+    x: width / 2,
+    y: height / 2,
+  })) as (Node & d3.SimulationNodeDatum)[]
   const links = propLinks.map((l) => {
     return {
       ...l,
@@ -106,32 +85,62 @@ function drawGraph(
     .join('text')
     .style('text-anchor', 'middle')
     .style('cursor', 'pointer')
-    .text((d) => d.text)
+    .text((d) => (d as Node).text)
+
+  ;(
+    node as d3.Selection<
+      SVGTextElement,
+      Node & d3.SimulationNodeDatum,
+      SVGGElement,
+      unknown
+    >
+  ).call(
+    d3
+      .drag<SVGTextElement, Node & d3.SimulationNodeDatum>()
+      .on('start', dragstarted)
+      .on('drag', dragged)
+      .on('end', dragended)
+  )
 
   function ticked() {
     link
-      .attr('x1', (d: any) => d.source.x)
-      .attr('y1', (d: any) => d.source.y)
-      .attr('x2', (d: any) => d.target.x)
-      .attr('y2', (d: any) => d.target.y)
-    node.attr('x', (d) => d.x).attr('y', (d) => d.y)
+      .attr('x1', (d) => (d.source as d3.SimulationNodeDatum).x || 0)
+      .attr('y1', (d) => (d.source as d3.SimulationNodeDatum).y || 0)
+      .attr('x2', (d) => (d.target as d3.SimulationNodeDatum).x || 0)
+      .attr('y2', (d) => (d.target as d3.SimulationNodeDatum).y || 0)
+    node.attr('x', (d) => d.x || 0).attr('y', (d) => d.y || 0)
   }
 
-  node.call(
-    d3.drag().on('start', dragstarted).on('drag', dragged).on('end', dragended)
-  )
-  function dragstarted(event: any) {
+  function dragstarted(
+    event: d3.D3DragEvent<
+      SVGTextElement,
+      Node & d3.SimulationNodeDatum,
+      Node & d3.SimulationNodeDatum
+    >
+  ) {
     if (!event.active) simulation.alphaTarget(0.3).restart()
     event.subject.fx = event.subject.x
     event.subject.fy = event.subject.y
   }
 
-  function dragged(event: any) {
+  function dragged(
+    event: d3.D3DragEvent<
+      SVGTextElement,
+      Node & d3.SimulationNodeDatum,
+      Node & d3.SimulationNodeDatum
+    >
+  ) {
     event.subject.fx = event.x
     event.subject.fy = event.y
   }
 
-  function dragended(event: any) {
+  function dragended(
+    event: d3.D3DragEvent<
+      SVGTextElement,
+      Node & d3.SimulationNodeDatum,
+      Node & d3.SimulationNodeDatum
+    >
+  ) {
     if (!event.active) simulation.alphaTarget(0)
     event.subject.fx = null
     event.subject.fy = null
