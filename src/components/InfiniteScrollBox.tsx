@@ -1,18 +1,18 @@
-import React from 'react'
+import React, { useRef, useEffect, JSX, ReactNode } from 'react'
 
 type InfiniteScrollBoxProps = {
-  children: React.ReactNode
+  children: ReactNode
   className?: string
 }
 
 export default function InfiniteScrollBox({
   children,
   className,
-}: InfiniteScrollBoxProps): React.JSX.Element {
-  const containerRef = React.useRef<HTMLDivElement | null>(null)
-  const contentRef = React.useRef<HTMLDivElement | null>(null)
+}: InfiniteScrollBoxProps): JSX.Element {
+  const containerRef = useRef<HTMLDivElement | null>(null)
+  const contentRef = useRef<HTMLDivElement | null>(null)
 
-  React.useEffect(() => {
+  useEffect(() => {
     const container = containerRef.current
     const content = contentRef.current
 

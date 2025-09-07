@@ -110,9 +110,19 @@ import InfiniteScrollBox from "../../src/components/InfiniteScrollBox"
 
 **そこで，カレーラーメンを提案する．**
 
-### グラフ構造の文章
+### グラフ構造
 
+import TextGraph from '../../src/components/TextGraph'
 
+<TextGraph width={600} height={400} nodes={[
+    { id: 1, text: '日本軍が奨励して流行したことにより，日本ではイギリス由来のカレーが一般的だ．' },
+    { id: 2, text: '洋食ブームにより，うどん屋は洋食店に客を奪われたことで，打開策としてカレーうどんが考案した．' },
+    { id: 3, text: '近年では，インバウンドの増加しているが，欧米人はラーメン > うどん > 蕎麦の順に関心がある．' },
+]} links={[
+    { source: 1, target: 2 },
+    { source: 2, target: 3 },
+    { source: 3, target: 1 },
+]}/>
 
 ## おわりに
 
