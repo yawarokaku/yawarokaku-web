@@ -23,13 +23,13 @@ const MDXComponents = {
   ),
   ul: (props: React.HTMLProps<HTMLUListElement>) => (
     <ul
-      className="list-disc list-inside mb-4 space-y-2 text-gray-700"
+      className="list-disc list-inside mb-4 space-y-2 text-gray-700 px-4"
       {...props}
     />
   ),
   ol: (props: React.ComponentProps<'ol'>) => (
     <ol
-      className="list-decimal list-inside mb-4 space-y-2 text-gray-700"
+      className="list-decimal list-inside mb-4 space-y-2 text-gray-700 px-4"
       {...props}
     />
   ),
