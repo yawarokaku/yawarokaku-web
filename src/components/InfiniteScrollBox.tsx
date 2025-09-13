@@ -42,7 +42,9 @@ export default function InfiniteScrollBox({
   return (
     <div
       ref={containerRef}
-      className={`overflow-y-scroll h-40 border ${className ?? ''}`}
+      className={`overflow-y-scroll scrollbar-none h-40 border ${
+        className ?? ''
+      }`}
     >
       <div ref={contentRef}>{children}</div>
     </div>
