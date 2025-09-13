@@ -159,7 +159,6 @@ function drawGraph(
     .text((d) => d.text)
   const node = svg
     .append('g')
-    .attr('stroke', '#333')
     .selectAll()
     .data(nodes)
     .join('g')
@@ -170,11 +169,25 @@ function drawGraph(
       setModalOpen(true)
     })
 
+  const defaultColor = '#333'
+  const hilightColor = '#0000EE'
   node
     .append('text')
     .style('text-anchor', 'middle')
+    .style('stroke', defaultColor)
+    .style('fill', defaultColor)
     .attr('dy', '0.35em')
     .text((d) => (d as Node).summary)
+    .on('mouseover', (event) => {
+      d3.select(event.target)
+        .style('stroke', hilightColor)
+        .style('fill', hilightColor)
+    })
+    .on('mouseleave', (event) => {
+      d3.select(event.target)
+        .style('stroke', defaultColor)
+        .style('fill', defaultColor)
+    })
   ;(
     node as d3.Selection<
       SVGGElement,
