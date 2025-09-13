@@ -11,6 +11,7 @@ type Link = {
   id: number
   source: number
   target: number
+  text: string
 }
 
 type TextGraphProps = {
@@ -139,13 +140,23 @@ function drawGraph(
     .force('center', d3.forceCenter(width / 2, height / 2))
     .on('tick', ticked)
 
-  const link = svg
-    .append('g')
-    .attr('stroke', '#AAA')
-    .attr('stroke-opacity', 0.6)
-    .selectAll()
+  const linkGroup = svg.append('g')
+
+  const link = linkGroup
+    .selectAll('line')
     .data(links)
     .join('line')
+    .attr('stroke', '#AAA')
+    .attr('stroke-opacity', 0.6)
+
+  const linkText = linkGroup
+    .selectAll('text')
+    .data(links)
+    .join('text')
+    .style('text-anchor', 'middle')
+    .style('font-size', '12px')
+    .style('fill', '#666')
+    .text((d) => d.text)
   const node = svg
     .append('g')
     .attr('stroke', '#333')
@@ -153,23 +164,17 @@ function drawGraph(
     .data(nodes)
     .join('g')
     .style('cursor', 'pointer')
-    .on('click', (target, data) => {
+    .on('click', (_, data) => {
       setModalHead(data.summary)
       setModalText(data.text)
       setModalOpen(true)
     })
 
-  node.each(function (d) {
-    const nodeGroup = d3.select(this)
-    const lines = (d as Node).summary.split('\n')
-    lines.forEach((line: string, index: number) => {
-      nodeGroup
-        .append('text')
-        .style('text-anchor', 'middle')
-        .attr('dy', `${index * 1.2}em`)
-        .text(line)
-    })
-  })
+  node
+    .append('text')
+    .style('text-anchor', 'middle')
+    .attr('dy', '0.35em')
+    .text((d) => (d as Node).summary)
   ;(
     node as d3.Selection<
       SVGGElement,
@@ -191,6 +196,19 @@ function drawGraph(
       .attr('y1', (d) => (d.source as d3.SimulationNodeDatum).y || 0)
       .attr('x2', (d) => (d.target as d3.SimulationNodeDatum).x || 0)
       .attr('y2', (d) => (d.target as d3.SimulationNodeDatum).y || 0)
+
+    linkText
+      .attr('x', (d) => {
+        const sourceX = (d.source as d3.SimulationNodeDatum).x || 0
+        const targetX = (d.target as d3.SimulationNodeDatum).x || 0
+        return (sourceX + targetX) / 2
+      })
+      .attr('y', (d) => {
+        const sourceY = (d.source as d3.SimulationNodeDatum).y || 0
+        const targetY = (d.target as d3.SimulationNodeDatum).y || 0
+        return (sourceY + targetY) / 2
+      })
+
     node.attr('transform', (d) => `translate(${d.x || 0}, ${d.y || 0})`)
   }
 

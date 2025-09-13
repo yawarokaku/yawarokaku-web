@@ -117,9 +117,9 @@ import TextGraph from '../../src/components/TextGraph'
         { id: 2, summary: 'カレーうどん誕生', text: '洋食ブームにより，\nうどん屋は洋食店に客を持って行かれた．\nそこで打開策としてカレーうどんが考案した．' },
         { id: 3, summary: 'インバウンドの食の傾向', text: '近年では，インバウンドの増加しているが，\n欧米人はラーメン > うどん > 蕎麦\nの順に関心がある．' },
     ]} links={[
-        { source: 1, target: 2 },
-        { source: 2, target: 3 },
-        { source: 3, target: 1 },
+        { source: 1, target: 2, text: '洋食' },
+        { source: 2, target: 3, text: '麺類' },
+        { source: 3, target: 1, text: '日本と西洋' },
     ]} className="content-center bg-slate-100"/>
 </div>
 
