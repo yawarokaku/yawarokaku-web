@@ -82,7 +82,7 @@ export default AboutPage
 
 export const Head: HeadFC = () => (
   <React.Fragment>
-    <title>やわろかく</title>
+    <title>About - やわろかく</title>
     <meta name="robots" content="noindex"></meta>
   </React.Fragment>
 )
