@@ -16,7 +16,7 @@ const AboutPage: React.FC = () => {
       </div>
 
       <h2 className="text-2xl font-extrabold mb-4">手元から解放された文字</h2>
-      <div className="mb-6 [&>p]:indent-3">
+      <div className="mb-6 [&>p]:indent-3 [&>h2]:mb-4 [&>h2]:mt-8 [&>h2]:text-2xl [&>h2]:font-extrabold">
         <p>
           「書くもの」とは文房具のことですが、ソフトウェアを利用した「文房具」は人の手を使う、
           いわゆるえんぴつや紙を意味していません。
@@ -38,17 +38,14 @@ const AboutPage: React.FC = () => {
         </p>
         <p>つまり、私たちの書いてる文字は手元から離れて生み出されています。</p>
         <StaticImage src="../images/write-flick.png" alt="write/type" />
-        {/* <img src="../images/write-type.svg" alt="My Happy SVG" /> */}
-        {/* <StaticImage src="../images/write-type.svg" alt="write/type" /> */}
         <p>
           いまや、音声入力を使えば完全に手を使わず文字を表示することも可能です。
           言い換えると、文字の生産が、書くもの（ぺん）と書かれるもの（紙）の上の間の軌跡ではなく、
           スマホ（コンピュータ）による入力、処理、出力に変わったのです。
         </p>
-        <h2 className="text-2xl font-extrabold mb-4">
+        <h2>
           座って書くことから文字を解放し、動きながら書かかれる文字について考える
         </h2>
-        <div className="mb-6 [&>p]:indent-3"></div>
         <p>
           文字を書くことが手元から離れるということに対して、「やわろかく」が注目しているのはずばり、歩きながら文字を書くことができるようになった、ということです。文字が手元から離れるということは、
           椅子に座り机に向き合わなくても生み出すことができるようになったということです。
@@ -58,10 +55,7 @@ const AboutPage: React.FC = () => {
           写真や動画を取る、音声を録音する、Google
           Mapで現在地を入力し目的地までのルートを表示することなど。
         </p>
-        <h2 className="text-2xl font-extrabold mb-4">
-          筆記装置から文字の概念の再考とその先
-        </h2>
-        <div className="mb-6 [&>p]:indent-3"></div>
+        <h2>筆記装置から文字の概念の再考とその先</h2>
         <p>
           逆に言えば、写真・動画・音声を記録することについて考えることは、現代の技術の文房具（ここではスマホのこと）の観点でいうと、文字で記録することについて考えること、ということも言えそうです。もう一つ観点を加えると、写真・動画・音声を記録する状況は、座っているのではなく、動きの中で記録されている時もあるでしょう。
         </p>
