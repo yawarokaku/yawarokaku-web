@@ -10,14 +10,24 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div className="min-h-screen flex flex-col">
       <header className="border-b border-gray-200 bg-white mb-6">
         <div className="max-w-4xl mx-auto p-6">
-          <h1 className="text-2xl font-bold">
-            <Link
-              to="/"
-              className="text-gray-900 no-underline hover:text-gray-700"
-            >
-              やわろかく
-            </Link>
-          </h1>
+          <div className="flex justify-between items-center">
+            <h1 className="text-2xl font-bold">
+              <Link
+                to="/"
+                className="text-gray-900 no-underline hover:text-gray-700"
+              >
+                やわろかく
+              </Link>
+            </h1>
+            <nav>
+              <Link
+                to="/about"
+                className="text-gray-700 hover:text-gray-900 no-underline"
+              >
+                About
+              </Link>
+            </nav>
+          </div>
         </div>
       </header>
 
