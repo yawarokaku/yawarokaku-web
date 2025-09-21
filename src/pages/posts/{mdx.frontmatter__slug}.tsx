@@ -51,7 +51,7 @@ export const query = graphql`
 
 export const Head: HeadFC<PostPageProps['data']> = ({ data }) => (
   <React.Fragment>
-    <title>{data.mdx.frontmatter.title} - やわろ書く</title>
+    <title>{data.mdx.frontmatter.title} - やわろかく</title>
     <meta name="robots" content="noindex"></meta>
   </React.Fragment>
 )
