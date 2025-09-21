@@ -26,7 +26,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
     <Layout>
       <div className="mb-8">
         <h2 className="text-lg font-extrabold">
-          私たち“やわろ書く”の目的は、
+          私たち“やわろかく”の目的は、
           やわらかいもの（ソフトウェア）におおわれた今の時代に、
           <br />
           あってもよいはずの「書きもの」を作り出し、そのコンテンツを運営することです。
@@ -38,7 +38,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         <p>
           「書くもの」とは文房具のことですが、ソフトウェアを利用した「文房具」は人の手を使う、
           いわゆるえんぴつや紙を意味していません。
-          “やわろ書く”のいう文房具はコンピューターを使った文房具のことです。
+          “やわろかく”のいう文房具はコンピューターを使った文房具のことです。
         </p>
         <p>
           文房具は文字を書き取るための道具ですが、
@@ -142,7 +142,7 @@ export const query = graphql`
 
 export const Head: HeadFC = () => (
   <React.Fragment>
-    <title>やわろ書く</title>
+    <title>やわろかく</title>
     <meta name="robots" content="noindex"></meta>
   </React.Fragment>
 )
