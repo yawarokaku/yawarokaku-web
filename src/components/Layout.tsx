@@ -15,7 +15,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               to="/"
               className="text-gray-900 no-underline hover:text-gray-700"
             >
-              やわろ書く
+              やわろかく
             </Link>
           </h1>
         </div>
