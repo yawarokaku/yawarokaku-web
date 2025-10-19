@@ -13,6 +13,43 @@ const config: GatsbyConfig = {
     'gatsby-plugin-image',
     'gatsby-plugin-sitemap',
     {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [
+          {
+            userAgent: 'ChatGPT-User',
+            allow: ['/'],
+            disallow: ['/posts'],
+            crawlDelay: 2,
+          },
+          {
+            userAgent: 'GPTBot',
+            allow: ['/'],
+            disallow: ['/posts'],
+            crawlDelay: 2,
+          },
+          {
+            userAgent: 'Google-Extended',
+            allow: ['/'],
+            disallow: ['/posts'],
+            crawlDelay: 2,
+          },
+          {
+            userAgent: 'Bingbot',
+            allow: ['/'],
+            disallow: ['/posts'],
+            crawlDelay: 2,
+          },
+          {
+            userAgent: 'BingPreview',
+            allow: ['/'],
+            disallow: ['/posts'],
+            crawlDelay: 2,
+          },
+        ],
+      },
+    },
+    {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
         trackingIds: [],
@@ -32,6 +69,14 @@ const config: GatsbyConfig = {
           remarkPlugins: [],
           rehypePlugins: [],
         },
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
       },
     },
     'gatsby-plugin-sharp',

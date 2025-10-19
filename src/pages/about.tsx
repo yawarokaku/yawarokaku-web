@@ -1,26 +1,9 @@
 import * as React from 'react'
-import { graphql, Link } from 'gatsby'
-import type { HeadFC, PageProps } from 'gatsby'
+import type { HeadFC } from 'gatsby'
 import Layout from '../components/Layout'
+import { StaticImage } from 'gatsby-plugin-image'
 
-interface IndexPageProps extends PageProps {
-  data: {
-    allMdx: {
-      nodes: Array<{
-        id: string
-        frontmatter: {
-          title: string
-          date: string
-          author: string
-          slug: string
-        }
-        excerpt: string
-      }>
-    }
-  }
-}
-
-const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
+const AboutPage: React.FC = () => {
   return (
     <Layout>
       <div className="mb-8">
@@ -33,16 +16,16 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
       </div>
 
       <h2 className="text-2xl font-extrabold mb-4">手元から解放された文字</h2>
-      <div className="mb-6 [&>p]:indent-3">
+      <div className="mb-6 [&>p]:indent-3 [&>h2]:mb-4 [&>h2]:mt-8 [&>h2]:text-2xl [&>h2]:font-extrabold">
         <p>
           「書くもの」とは文房具のことですが、ソフトウェアを利用した「文房具」は人の手を使う、
           いわゆるえんぴつや紙を意味していません。
-          “やわろ書く”のいう文房具はコンピューターを使った文房具のことです。
+          “やわろかく”のいう文房具はコンピューターを使った文房具のことです。
         </p>
         <p>
           文房具は文字を書き取るための道具ですが、
           スマホを手にした私たちが文字を読み書きする多くの場面でペンと紙の出番はとても少なくなりました。
-          長いあいだ文字は、私たちの手元のペンと紙の間の軌跡として存在してきました。
+          ながいあいだ文字は、私たちの手元のペンと紙の間の軌跡として存在してきました。
         </p>
         <p>
           けれどスマホを手にした私たちの文字は、指とスクリーンの軌跡に加え、
@@ -50,39 +33,29 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         </p>
         <p>
           例えば、ペンと紙の上での「え」を書く際の書き順を思う浮かべてください。
-          そのあと、スマホの仮想キーボード上で「え」という文字をフリック入力することを思い浮かべてください。「あ」という文字の上に
-          指を乗せ右向きに指を動かすと「え」が表示されます。当たり前ですが、フリック入力の指の動きの軌跡と「え」の書き順は一致しません。
+          そのあと、スマホの仮想キーボード上でフリック入力する際に「あ」という文字の上に
+          指を乗せ下向きに指を動かすというこ「え」を表示するとその違いが実感できると思います。
         </p>
-        <p>
-          スマホ上で私たちの書いてる文字が、手元から離れていることが経験から理解できると思います。
-        </p>
+        <p>つまり、私たちの書いてる文字は手元から離れて生み出されています。</p>
         <StaticImage src="../images/write-flick.png" alt="write/type" />
-        {/* <img src="../images/write-type.svg" alt="My Happy SVG" /> */}
-        {/* <StaticImage src="../images/write-type.svg" alt="write/type" /> */}
         <p>
-          今や音声入力を使えば完全に手を使わず文字を表示することも可能です。
+          いまや、音声入力を使えば完全に手を使わず文字を表示することも可能です。
           言い換えると、文字の生産が、書くもの（ぺん）と書かれるもの（紙）の上の間の軌跡ではなく、
           スマホ（コンピュータ）による入力、処理、出力に変わったのです。
         </p>
-        <h2 className="text-2xl font-extrabold mb-4">
+        <h2>
           座って書くことから文字を解放し、動きながら書かかれる文字について考える
         </h2>
-        <div className="mb-6 [&>p]:indent-3"></div>
         <p>
           文字を書くことが手元から離れるということに対して、「やわろかく」が注目しているのはずばり、歩きながら文字を書くことができるようになった、ということです。文字が手元から離れるということは、
           椅子に座り机に向き合わなくても生み出すことができるようになったということです。
-        </p>
-        <p>
           少し脱線すると、だからこそSNSのサービスがこんなにも普及したのではないでしょうか。
           SNSを更新する時に必ず机と椅子がないと書きづらい状況を想像するととても不便でしょう？スマホ上で文字を書く(画面に表示する)ということが、コンピュータの入力・処理・出力のプロセスに基づくならば、
           スマホで行えるあらゆることがこの入力・処理・出力を行なっていることに気づくと思います。
           写真や動画を取る、音声を録音する、Google
           Mapで現在地を入力し目的地までのルートを表示することなど。
         </p>
-        <h2 className="text-2xl font-extrabold mb-4">
-          筆記装置から文字の概念の再考とその先
-        </h2>
-        <div className="mb-6 [&>p]:indent-3"></div>
+        <h2>筆記装置から文字の概念の再考とその先</h2>
         <p>
           逆に言えば、写真・動画・音声を記録することについて考えることは、現代の技術の文房具（ここではスマホのこと）の観点でいうと、文字で記録することについて考えること、ということも言えそうです。もう一つ観点を加えると、写真・動画・音声を記録する状況は、座っているのではなく、動きの中で記録されている時もあるでしょう。
         </p>
@@ -95,57 +68,15 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           多くの書き手と読み手の生活を豊かにしたいと考えています。
         </p>
       </div>
-
-      <h2 className="mb-4 text-3xl font-extrabold">Posts</h2>
-      <div className="space-y-4">
-        {data.allMdx.nodes.map((post) => (
-          <article key={post.id} className="border-b border-gray-200 pb-4">
-            <h3 className="text-xl font-bold mb-2">
-              <Link
-                to={`/posts/${post.frontmatter.slug}`}
-                className="text-blue-600 hover:text-blue-800 no-underline"
-              >
-                {post.frontmatter.title}
-              </Link>
-            </h3>
-            <p className="text-gray-600 text-sm mb-2">
-              <span>{post.frontmatter.date}</span>
-              {/* <span className="mr-3">{post.frontmatter.date}</span> */}
-              {/* <span>{post.frontmatter.author}</span> */}
-            </p>
-            <p className="text-gray-700">{post.excerpt}</p>
-          </article>
-        ))}
-      </div>
     </Layout>
   )
 }
 
-export default IndexPage
-
-export const query = graphql`
-  query IndexPageQuery {
-    allMdx(
-      filter: { internal: { contentFilePath: { regex: "/content/posts/" } } }
-      sort: { frontmatter: { date: DESC } }
-    ) {
-      nodes {
-        id
-        frontmatter {
-          title
-          date(formatString: "YYYY年MM月DD日")
-          author
-          slug
-        }
-        excerpt(pruneLength: 200)
-      }
-    }
-  }
-`
+export default AboutPage
 
 export const Head: HeadFC = () => (
   <React.Fragment>
-    <title>やわろかく</title>
+    <title>About - やわろかく</title>
     <meta name="robots" content="noindex"></meta>
   </React.Fragment>
 )
