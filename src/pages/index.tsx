@@ -2,6 +2,7 @@ import * as React from 'react'
 import { graphql, Link } from 'gatsby'
 import type { HeadFC, PageProps } from 'gatsby'
 import Layout from '../components/Layout'
+import { StaticImage } from 'gatsby-plugin-image'
 
 interface IndexPageProps extends PageProps {
   data: {
